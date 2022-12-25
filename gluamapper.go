@@ -1,11 +1,10 @@
-// gluamapper provides an easy way to map GopherLua tables to Go structs.
 package gluamapper
 
 import (
 	"errors"
 	"fmt"
 	"github.com/mitchellh/mapstructure"
-	"github.com/yuin/gopher-lua"
+	"github.com/vivi-app/lua"
 	"regexp"
 	"strings"
 )
@@ -63,16 +62,16 @@ func Map(tbl *lua.LTable, st interface{}) error {
 	return NewMapper(Option{}).Map(tbl, st)
 }
 
-
 // Id is an Option.NameFunc that returns given string as-is.
 func Id(s string) string {
 	return s
 }
 
 var camelre = regexp.MustCompile(`_([a-z])`)
+
 // ToUpperCamelCase is an Option.NameFunc that converts strings from snake case to upper camel case.
 func ToUpperCamelCase(s string) string {
-	return strings.ToUpper(string(s[0])) + camelre.ReplaceAllStringFunc(s[1:len(s)], func(s string) string { return strings.ToUpper(s[1:len(s)]) })
+	return strings.ToUpper(string(s[0])) + camelre.ReplaceAllStringFunc(s[1:], func(s string) string { return strings.ToUpper(s[1:]) })
 }
 
 // ToGoValue converts the given LValue to a Go object.

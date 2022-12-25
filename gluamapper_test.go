@@ -1,7 +1,7 @@
 package gluamapper
 
 import (
-	"github.com/yuin/gopher-lua"
+	"github.com/vivi-app/lua"
 	"path/filepath"
 	"runtime"
 	"testing"
@@ -34,7 +34,7 @@ type testStruct struct {
 }
 
 func TestMap(t *testing.T) {
-	L := lua.NewState()
+	L := lua.NewState(nil)
 	if err := L.DoString(`
     person = {
       name = "Michel",
@@ -65,7 +65,7 @@ func TestMap(t *testing.T) {
 }
 
 func TestTypes(t *testing.T) {
-	L := lua.NewState()
+	L := lua.NewState(nil)
 	if err := L.DoString(`
     tbl = {
       ["Nil"] = nil,
@@ -89,7 +89,7 @@ func TestTypes(t *testing.T) {
 }
 
 func TestNameFunc(t *testing.T) {
-	L := lua.NewState()
+	L := lua.NewState(nil)
 	if err := L.DoString(`
     person = {
       Name = "Michel",
@@ -121,7 +121,7 @@ func TestNameFunc(t *testing.T) {
 }
 
 func TestError(t *testing.T) {
-	L := lua.NewState()
+	L := lua.NewState(nil)
 	tbl := L.NewTable()
 	L.SetField(tbl, "key", lua.LString("value"))
 	err := Map(tbl, 1)

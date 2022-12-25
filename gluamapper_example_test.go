@@ -2,7 +2,7 @@ package gluamapper
 
 import (
 	"fmt"
-	"github.com/yuin/gopher-lua"
+	"github.com/vivi-app/lua"
 )
 
 func ExampleMap() {
@@ -17,7 +17,7 @@ func ExampleMap() {
 		Role      []*Role
 	}
 
-	L := lua.NewState()
+	L := lua.NewState(nil)
 	if err := L.DoString(`
     person = {
       name = "Michel",
