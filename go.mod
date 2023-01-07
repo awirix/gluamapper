@@ -1,4 +1,4 @@
-module github.com/vivi-app/gluamapper
+module github.com/awirix/gluamapper
 
 go 1.19
 
