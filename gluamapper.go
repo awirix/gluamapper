@@ -3,8 +3,8 @@ package gluamapper
 import (
 	"errors"
 	"fmt"
+	"github.com/awirix/lua"
 	"github.com/mitchellh/mapstructure"
-	"github.com/vivi-app/lua"
 	"regexp"
 	"strings"
 )
