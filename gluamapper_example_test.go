@@ -2,7 +2,7 @@ package gluamapper
 
 import (
 	"fmt"
-	"github.com/vivi-app/lua"
+	"github.com/awirix/lua"
 )
 
 func ExampleMap() {

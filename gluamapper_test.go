@@ -1,7 +1,7 @@
 package gluamapper
 
 import (
-	"github.com/vivi-app/lua"
+	"github.com/awirix/lua"
 	"path/filepath"
 	"runtime"
 	"testing"
